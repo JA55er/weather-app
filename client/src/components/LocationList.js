@@ -1,5 +1,7 @@
 import React from "react";
 
+import Stack from '@mui/material/Stack'
+
 import '../styles/App.css'
 
 import LocationItem from "./LocationItem";
@@ -20,6 +22,7 @@ const LocationList = ({ locations, setDisplayDetails, displayDetails }) => {
 
   return (
     <div className="LocationList">
+      <Stack spacing={2}>
       {locations.map((location, index) => {
         return (
           <div key={location.id}>
@@ -31,8 +34,8 @@ const LocationList = ({ locations, setDisplayDetails, displayDetails }) => {
           </div>
         );
       })}
+      </Stack>
     </div>
   );
 };
-
 export default LocationList;
