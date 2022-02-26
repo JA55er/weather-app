@@ -24,8 +24,8 @@ app.post("/", async (req, res) => {
     data: req.body.data,
     date: new Date()
   })
-  await action.save()
-  console.log(action)
+  response = await action.save()
+  // console.log(response)
 });
 
 const PORT = 3001;

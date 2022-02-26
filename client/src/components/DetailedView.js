@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import getCurrent from "../api/getCurrent";
 import getDaily from "../api/getDaily";
 import logAction from "../services/logAction";
+import getDayOfTheWeek from "../services/getDayOfTheWeek";
 import DailyWeather from "./DailyWeather";
 const DetailedView = ({ location, setDisplayDetails }) => {
   const [currentWeather, setCurrentWeather] = useState({});
   const [dailyWeather, setDailyWeather] = useState([]);
+  const [dayOfTheWeek, setDayOfTheWeek] = useState('')
 
   useEffect(() => {
     const getCurrentWeather = async () => {
@@ -17,7 +19,7 @@ const DetailedView = ({ location, setDisplayDetails }) => {
   }, [location.id]);
 
   useEffect(() => {
-    if (currentWeather.time) {
+    if (currentWeather?.time) {
       logAction({
         action: "retrieved current weather",
         data: {
@@ -26,9 +28,13 @@ const DetailedView = ({ location, setDisplayDetails }) => {
           currentWeather,
         },
       });
+      setDayOfTheWeek(getDayOfTheWeek(currentWeather.time));
       console.log(location);
     }
   }, [currentWeather]);
+
+  console.log(currentWeather)
+
 
   const icon = currentWeather?.symbol ? (
     <img
@@ -46,11 +52,14 @@ const DetailedView = ({ location, setDisplayDetails }) => {
     dailyWeatherArray = null;
   }
 
+  console.log(dayOfTheWeek)
+
   return (
     <div>
       <div onClick={() => setDisplayDetails(null)}>
         {location.name} {location.country}
       </div>
+      <div>{dayOfTheWeek}</div>
       {icon}
       {dailyWeatherArray}
     </div>

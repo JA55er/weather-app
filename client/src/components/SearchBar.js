@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 
+import TextField from '@mui/material/TextField';
+
 import getLocation from "../api/searchLocation";
 import logAction from "../services/logAction";
 
-const SearchBar = ({setLocations, setDisplayDetails}) => {
+const SearchBar = ({ setLocations, setDisplayDetails }) => {
   const [searchText, setSearchText] = useState("");
 
   const onSearchInputChange = (e) => {
@@ -12,20 +14,26 @@ const SearchBar = ({setLocations, setDisplayDetails}) => {
 
   const onSearchSubmit = async (e) => {
     e.preventDefault();
+
     setDisplayDetails(null);
     logAction({
-      action: 'search location',
-      data: searchText
+      action: "search location",
+      data: searchText,
     });
     setLocations(await getLocation(searchText));
     console.log(/^(?! )[A-Za-z\s]+$/.test(searchText));
   };
 
   return (
-      <form onSubmit={(e) => onSearchSubmit(e)}>
-          <input onChange={(e) => onSearchInputChange(e)} type="text" value={searchText} maxLength="30"/>
-      </form>
-    );
+    <form onSubmit={(e) => onSearchSubmit(e)}>
+      <TextField
+        onChange={(e) => onSearchInputChange(e)}
+        variant="standard"
+        value={searchText}
+        inputProps={{ maxLength: 30, spellCheck: 'false' }}
+      />
+    </form>
+  );
 };
 
 export default SearchBar;

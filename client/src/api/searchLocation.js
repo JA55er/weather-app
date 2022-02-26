@@ -14,6 +14,9 @@ const options = {
   try {
     const response = await axios.request(options);
     console.log(response)
+    if (response.data.locations.length === 0) {
+      return ["none"]
+    }
     return response.data.locations.slice(0, 5);
   } catch (err) {
     console.error(err);

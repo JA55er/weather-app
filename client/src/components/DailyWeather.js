@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import getDayOfTheWeek from "../services/getDayOfTheWeek";
 
 const DailyWeather = ({ oneDayWeather }) => {
-  // console.log(oneDayWeather);
+  const [dayOfTheWeek, setDayOfTheWeek] = useState('')
+
+  useEffect(() => {
+    if(oneDayWeather?.date) {
+      setDayOfTheWeek(getDayOfTheWeek(oneDayWeather.date))
+    }
+  }, [oneDayWeather])
+  console.log(oneDayWeather);
+  console.log(dayOfTheWeek)
   return (
     <div>
       <img
