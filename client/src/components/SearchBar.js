@@ -6,12 +6,25 @@ import getLocation from "../api/searchLocation";
 import logAction from "../services/logAction";
 
 const SearchBar = ({ setLocations, setDisplayDetails }) => {
+  //searchText - for controlling the form input
+  //searchTextError - state that decides if error message should be displayed
   const [searchText, setSearchText] = useState("");
+  const [searchTextError, setSearchTextError] = useState(false);
 
+  //sets the state for input control
+  //checks if input contains characters besides letters and spaces
   const onSearchInputChange = (e) => {
     setSearchText(e.target.value);
+    if (/^(?! )[A-Za-z\s]+$/.test(e.target.value) || !e.target.value) {
+      setSearchTextError(false);
+    } else {
+      setSearchTextError(true);
+    }
   };
 
+  //on form submit removes detailed view for a single location
+  //sends search action log to backend server
+  //sets the state with found locations
   const onSearchSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,7 +34,6 @@ const SearchBar = ({ setLocations, setDisplayDetails }) => {
       data: searchText,
     });
     setLocations(await getLocation(searchText));
-    console.log(/^(?! )[A-Za-z\s]+$/.test(searchText));
   };
 
   return (
@@ -34,6 +46,8 @@ const SearchBar = ({ setLocations, setDisplayDetails }) => {
           onChange={(e) => onSearchInputChange(e)}
           variant="standard"
           value={searchText}
+          error={searchTextError}
+          helperText={searchTextError ? "Only letters and spaces allowed" : ""}
           inputProps={{
             maxLength: 30,
             spellCheck: "false",

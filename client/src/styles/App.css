@@ -23,14 +23,29 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .locationText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   font-size: large;
   border-bottom: 2px solid gray;
+  height: 100px;
+  width: 300px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .locationText:hover {
@@ -56,7 +71,8 @@
           align-items: center;
   text-align: center;
   padding: 30px;
-  padding-bottom: 100px;
+  margin-bottom: 50px;
+  background-color: #fff;
 }
 
 .locationName {
@@ -70,6 +86,7 @@
 .currentTime {
   font-size: 30px;
   margin-bottom: 20px;
+  color: #6e6e6e;
 }
 
 .dailyWeatherList {
@@ -91,6 +108,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .dailyItem {
@@ -111,22 +129,24 @@
 
 .dailyNameOfDay {
   font-size: 25px;
+  color: #6e6e6e;
 }
 
 .return {
-  color: gray;
+  color: #6e6e6e;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 300px;
   height: 50px;
-  text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 20px;
+  background-color: #fff;
 }
 
 .return:hover {
@@ -136,6 +156,19 @@
 :root {
   width: auto;
   height: 100vh;
-  background-color: azure;
+  background-color: #F0FFFF;
+}
+
+.detailedViewContainer {
+  padding: 30px;
+}
+
+.locationListName {
+  font-size: 30px;
+}
+
+.locationListCountry {
+  font-size: 20px;
+  color: #6e6e6e;
 }
 /*# sourceMappingURL=App.css.map */

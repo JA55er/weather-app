@@ -3,6 +3,11 @@
   font-family: 'Roboto';
 }
 
+$primaryBackground: #F0FFFF;
+$hoverBackgroundColor: #fdfcfce7;
+$primaryColor: #000;
+$secondaryColor: rgb(110, 110, 110);
+
 .App {
   display: flex;
   align-items: center;
@@ -12,17 +17,23 @@
 .LocationList {
   display: flex;
   align-items: center;
-  
+  justify-content: center;
 }
 
 .locationText {
+  display: flex;
   align-items: center;
   font-size: large;
   border-bottom: 2px solid gray;
+  height: 100px;
+  width: 300px;
+  justify-content: center;
+  flex-direction: column;
+  
 }
 
 .locationText:hover {
-  background-color: #fdfcfce7;
+  background-color: $hoverBackgroundColor;
 }
 
 .temperature {
@@ -36,12 +47,12 @@
   align-items: center;
   text-align: center;
   padding: 30px;
-  padding-bottom: 100px;
+  margin-bottom: 50px;
+  background-color: #fff;
 }
 
 .locationName {
   font-size: 30px;
-  
 }
 
 .symbolPhrase {
@@ -51,6 +62,7 @@
 .currentTime {
   font-size: 30px;
   margin-bottom: 20px;
+  color: $secondaryColor;
 }
 
 .dailyWeatherList {
@@ -62,6 +74,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .dailyItem {
@@ -73,24 +86,38 @@
 
 .dailyNameOfDay {
   font-size: 25px;
+  color: $secondaryColor;
 }
 
 .return {
-  color: gray;
+  color: $secondaryColor;
   display: flex;
   width: 300px;
   height: 50px;
-  text-align: center;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
+  background-color: #fff;
 }
 
 .return:hover {
-  background-color: #fdfcfce7;
+  background-color: $hoverBackgroundColor;
 }
 
 :root {
   width: auto;
   height: 100vh;
-  background-color: azure;
+  background-color: $primaryBackground;
+}
+
+.detailedViewContainer {
+  padding: 30px;
+}
+
+.locationListName {
+  font-size: 30px;
+}
+.locationListCountry {
+  font-size: 20px;
+  color: $secondaryColor;
 }
