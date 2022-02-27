@@ -6,27 +6,15 @@ import LocationList from "./components/LocationList";
 import SearchBar from "./components/SearchBar";
 import Container from "@mui/material/Container";
 import DetailedView from "./components/DetailedView";
-import { Paper } from "@mui/material";
+import Paper from "@mui/material/Paper";
 
 const App = () => {
   //locations - contains locations found by search
   //displayDetails - controls whether to show a detailed weather for a selected location or a list of locations
-  //display details gets set to null when performing a new search in SearchBar component or 
+  //display details gets set to null when performing a new search in SearchBar component or
   //to an index of locations (in the Locationitem component) to know which location's detailed weather to display
   const [locations, setLocations] = useState([]);
   const [displayDetails, setDisplayDetails] = useState(null);
-
-  //checks if a detailed view for a location is being displayed. If so renders a return button to go back to location list
-  let returnButton;
-  if (displayDetails !== null) {
-    returnButton = (
-      <Paper onClick={() => setDisplayDetails(null)} className="return">
-        &lt;&lt; RETURN
-      </Paper>
-    );
-  } else {
-    returnButton = null;
-  }
 
   //renders detailed view for a location if displayDetails is set
   if (displayDetails !== null) {
@@ -38,7 +26,9 @@ const App = () => {
               setLocations={setLocations}
               setDisplayDetails={setDisplayDetails}
             />
-            {returnButton}
+            <Paper onClick={() => setDisplayDetails(null)} className="return">
+              <p>&lt;&lt; RETURN</p>
+            </Paper>
             <DetailedView
               location={locations[displayDetails]}
               setDisplayDetails={setDisplayDetails}
@@ -49,7 +39,7 @@ const App = () => {
     );
   }
 
-  //renders a list of found locations if displayDetails is not set
+  // renders a list of found locations if displayDetails is not set
   if (!displayDetails) {
     return (
       <div className="background">
@@ -59,7 +49,6 @@ const App = () => {
               setLocations={setLocations}
               setDisplayDetails={setDisplayDetails}
             />
-            {returnButton}
             <LocationList
               locations={locations}
               setDisplayDetails={setDisplayDetails}

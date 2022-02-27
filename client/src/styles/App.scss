@@ -27,9 +27,9 @@ $secondaryColor: rgb(110, 110, 110);
   border-bottom: 2px solid gray;
   height: 100px;
   width: 300px;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
-  
+  text-align: center;
 }
 
 .locationText:hover {

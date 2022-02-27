@@ -38,10 +38,10 @@ const SearchBar = ({ setLocations, setDisplayDetails }) => {
 
   return (
     <div className="SearchBar">
-      <form onSubmit={(e) => onSearchSubmit(e)}>
+      <form className="searchForm" onSubmit={(e) => onSearchSubmit(e)}>
         <TextField
           style={{ width: 300, height: 100 }}
-          label="Search field"
+          placeholder="Enter location here"
           type="search"
           onChange={(e) => onSearchInputChange(e)}
           variant="standard"

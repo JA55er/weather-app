@@ -5,10 +5,9 @@ import Stack from "@mui/material/Stack";
 import "../styles/App.css";
 
 import LocationItem from "./LocationItem";
-import DetailedView from "./DetailedView";
-import { Paper } from "@mui/material";
+import Paper from "@mui/material/Paper";
 
-const LocationList = ({ locations, setDisplayDetails, displayDetails }) => {
+const LocationList = ({ locations, setDisplayDetails }) => {
   //renders nothing if locations state is still loading
   //display text if no locations are found by the search
   if (locations?.length === 0) return null;
