@@ -4,7 +4,10 @@ const cors = require("cors");
 
 
 const app = express();
-mongoose.connect("mongodb+srv://Tautvydas:HmljRZo7OjuG4dMN@cluster0.smf5k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+app.use(cors());
+app.use(express.json());
+
+mongoose.connect("mongodb+srv://Tautvydas:ELO7gsQb3uBHB7Mz@cluster0.qb93a.mongodb.net/UserActions?retryWrites=true&w=majority")
 
 const actionSchema = new mongoose.Schema({
   action: String,
@@ -14,9 +17,7 @@ const actionSchema = new mongoose.Schema({
 
 const Action = mongoose.model('Action', actionSchema);
 
-app.use(cors());
-app.use(express.json());
-
+//console logs user action and saves it in mongoDB
 app.post("/", async (req, res) => {
   console.log(req.body);
   const action = new Action({
@@ -24,8 +25,12 @@ app.post("/", async (req, res) => {
     data: req.body.data,
     date: new Date()
   })
-  response = await action.save()
-  // console.log(response)
+  try {
+    response = await action.save()
+    console.log(response)
+  } catch (err) {
+    console.log(err)
+  }
 });
 
 const PORT = 3001;
@@ -33,5 +38,3 @@ const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`);
 });
-
-console.log("hello world");

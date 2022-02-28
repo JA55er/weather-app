@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 import "./styles/App.css";
 
+import Paper from "@mui/material/Paper";
+
+
 import LocationList from "./components/LocationList";
 import SearchBar from "./components/SearchBar";
 import Container from "@mui/material/Container";
 import DetailedView from "./components/DetailedView";
-import Paper from "@mui/material/Paper";
 
 const App = () => {
   //locations - contains locations found by search

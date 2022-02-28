@@ -12,8 +12,6 @@ const DailyWeather = ({ oneDayWeather }) => {
     }
   }, [oneDayWeather]);
 
-  console.log(oneDayWeather)
-
   return (
     <Grid item justifyContent="center" alignItems="center" flex>
       <div className="dailyItem" ok="yes">
