@@ -11,7 +11,11 @@ npm install
 npm start
 ```
 
-If you also want to console log user's actions in the backend and save them on MongoDB you will need to navigate to the server folder on a separate console and run the command ```npm run```
+If you also want to console log user's actions in the backend and save them on MongoDB you will need to navigate to the server folder ```(../weather-app/server)``` on a separate console and run these commands
+```
+npm install
+npm start
+```
 
 ## Available Scripts
 
