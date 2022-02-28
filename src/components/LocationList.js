@@ -15,7 +15,7 @@ const LocationList = ({ locations, setDisplayDetails }) => {
 
   //renders a list of locations found by the search
   return (
-    <div className="LocationList">
+    <div className="locationList">
       <Stack spacing={2}>
         {locations.map((location, index) => {
           return (

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
-import TextField from "@mui/material/TextField";
 
 import getLocation from "../api/searchLocation";
 import logAction from "../services/logAction";
+
+import SearchIcon from "@mui/icons-material/Search";
+import IconButton from "@mui/material/IconButton";
+import InputBase from "@mui/material/InputBase";
+import Paper from "@mui/material/Paper";
 
 const SearchBar = ({ setLocations, setDisplayDetails }) => {
   //searchText - for controlling the form input
@@ -36,25 +40,32 @@ const SearchBar = ({ setLocations, setDisplayDetails }) => {
     setLocations(await getLocation(searchText));
   };
 
+  //makes an error message ir searchTestError is truthy
+  const errorMessage = searchTextError ? <p className="errorMessage">Only letters and spaces allowed</p> : null
+
   return (
-    <div className="SearchBar">
+    <div className="searchBar">
       <form className="searchForm" onSubmit={(e) => onSearchSubmit(e)}>
-        <TextField
-          style={{ width: 300, height: 100 }}
-          placeholder="Enter location here"
-          type="search"
-          onChange={(e) => onSearchInputChange(e)}
-          variant="standard"
-          value={searchText}
-          error={searchTextError}
-          helperText={searchTextError ? "Only letters and spaces allowed" : ""}
-          inputProps={{
-            maxLength: 30,
-            spellCheck: "false",
-            style: { fontSize: 30 },
-          }}
-        />
+          <Paper
+            style={{ display: "flex", alignItems: "center", width: 300 }}  className="searchForm" onSubmit={(e) => onSearchSubmit(e)}
+          >
+            <InputBase
+              placeholder="Enter location here"
+              type="search"
+              onChange={(e) => onSearchInputChange(e)}
+              value={searchText}
+              inputProps={{
+                maxLength: 30,
+                spellCheck: "false",
+                style: { fontSize: 30 },
+              }}
+            />
+            <IconButton type="submit" aria-label="search">
+              <SearchIcon />
+            </IconButton>
+          </Paper>
       </form>
+      {errorMessage}
     </div>
   );
 };

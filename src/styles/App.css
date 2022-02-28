@@ -16,7 +16,7 @@
           flex-direction: column;
 }
 
-.LocationList {
+.locationList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,6 +26,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 15px;
 }
 
 .locationText {
@@ -100,7 +101,7 @@
           flex-direction: row;
 }
 
-.DetailedView {
+.detailedView {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -170,5 +171,14 @@
 .locationListCountry {
   font-size: 20px;
   color: #6e6e6e;
+}
+
+.searchBar {
+  margin-bottom: 50px;
+}
+
+.errorMessage {
+  position: absolute;
+  color: red;
 }
 /*# sourceMappingURL=App.css.map */

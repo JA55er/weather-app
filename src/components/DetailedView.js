@@ -63,7 +63,7 @@ const DetailedView = ({ location }) => {
   const time = currentWeather.time.slice(11, 16);
 
   return (
-    <div className="DetailedView">
+    <div className="detailedView">
       <Paper>
         <div className="detailedViewContainer">
           <div className="currentWeather">

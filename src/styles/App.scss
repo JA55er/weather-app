@@ -14,10 +14,11 @@ $secondaryColor: rgb(110, 110, 110);
   flex-direction: column;
 }
 
-.LocationList {
+.locationList {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .locationText {
@@ -69,7 +70,7 @@ $secondaryColor: rgb(110, 110, 110);
   flex-direction: row;
 }
 
-.DetailedView {
+.detailedView {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -117,4 +118,13 @@ $secondaryColor: rgb(110, 110, 110);
 .locationListCountry {
   font-size: 20px;
   color: $secondaryColor;
+}
+
+.searchBar {
+  margin-bottom: 50px;
+}
+
+.errorMessage {
+  position: absolute;
+  color: red;
 }
