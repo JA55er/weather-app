@@ -17,9 +17,8 @@ npm install
 npm start
 ```
 # Deployed URL
-```
+
 https://directed-beacon-342715.lm.r.appspot.com/
-```
 
 ## Available Scripts
 
