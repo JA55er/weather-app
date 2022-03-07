@@ -57,7 +57,7 @@ const SearchBar = ({ setLocations, setDisplayDetails }) => {
               inputProps={{
                 maxLength: 30,
                 spellCheck: "false",
-                style: { fontSize: 30 },
+                style: { fontSize: 25 },
               }}
             />
             <IconButton type="submit" aria-label="search">

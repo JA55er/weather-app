@@ -1,14 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const config = require('./utils/config')
 
 const app = express();
+const weatherRouter = require('./controllers/weatherRouter')
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(
-  "mongodb+srv://Tautvydas:ELO7gsQb3uBHB7Mz@cluster0.qb93a.mongodb.net/UserActions?retryWrites=true&w=majority"
-);
+app.use('/api/weather', weatherRouter)
+
+mongoose.connect(config.MONGODB_URI);
+
 
 const actionSchema = new mongoose.Schema({
   action: String,
@@ -29,10 +32,10 @@ app.post("/actions", async (req, res) => {
   try {
     response = await action.save();
     console.log(response);
-    return res.status(201)
+    return res.status(201);
   } catch (err) {
     console.log(err);
-    return res.status(400)
+    return res.status(400);
   }
 });
 
