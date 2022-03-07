@@ -16,6 +16,9 @@ If you also want to console log user's actions in the backend and save them on M
 npm install
 npm start
 ```
+# Deployed URL
+
+https://directed-beacon-342715.lm.r.appspot.com/
 
 ## Available Scripts
 
