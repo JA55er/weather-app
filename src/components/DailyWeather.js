@@ -17,7 +17,7 @@ const DailyWeather = ({ oneDayWeather }) => {
       <div className="dailyItem" ok="yes">
         <div className="dailyNameOfDay">{dayOfTheWeek}</div>
         <div>
-          H:{oneDayWeather.minTemp}&#176; L:{oneDayWeather.maxTemp}&#176;
+          L:{oneDayWeather.minTemp}&#176; H:{oneDayWeather.maxTemp}&#176;
         </div>
         <img
           src={`https://developer.foreca.com/static/images/symbols/${oneDayWeather.symbol}.png`}

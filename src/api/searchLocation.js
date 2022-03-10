@@ -1,7 +1,8 @@
-var axios = require("axios").default;
+import { baseURL } from "../utils/config";
+import axios from "axios";
 
 const getLocation = async (location) => {
-  const response = await axios.get(`http://localhost:3001/api/weather/location?location=${location}`);
+  const response = await axios.get(`${baseURL}/api/weather/location?location=${location}`);
   return response.data;
 };
 
