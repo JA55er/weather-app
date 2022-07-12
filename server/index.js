@@ -39,18 +39,6 @@ app.post("/actions", async (req, res) => {
   }
 });
 
-app.get('/', (req, res) => {
-  console.log('before root')
-  res.send('root')
-  console.log('after root')
-})
-
-console.log('startup')
-
-app.get("/hello", async (req, res) => {
-  res.json('hello')
-})
-
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
