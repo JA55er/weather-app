@@ -31,9 +31,9 @@ const SearchBar = ({ setLocations, setDisplayDetails }) => {
   //sets the state with found locations
   const onSearchSubmit = async (e) => {
     e.preventDefault();
-
+    setLocations(['loading'])
     setDisplayDetails(null);
-    logAction({
+    await logAction({
       action: "search location",
       data: searchText,
     });

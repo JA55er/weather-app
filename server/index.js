@@ -23,19 +23,21 @@ const Action = mongoose.model("Action", actionSchema);
 
 //console logs user action and saves it in mongoDB
 app.post("/actions", async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   const action = new Action({
     action: req.body.action,
     data: req.body.data,
     date: new Date(),
   });
   try {
-    response = await action.save();
-    console.log(response);
-    return res.status(201);
+    const response = await action.save();
+    console.log('response of log',response);
+    res.status(201).send(response);
+    // return res.status(201);
   } catch (err) {
     console.log(err);
-    return res.status(400);
+    res.status(400).send(error);
+    // return res.status(400);
   }
 });
 

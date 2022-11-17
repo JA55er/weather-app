@@ -17,6 +17,11 @@ const DetailedView = ({ location }) => {
   const [dailyWeather, setDailyWeather] = useState([]);
   const [dayOfTheWeek, setDayOfTheWeek] = useState("");
 
+  console.log('location', location)
+  console.log('currentWeather', currentWeather)
+  console.log('dailyWeather', dailyWeather)
+  console.log('dayOfTheWeek', dayOfTheWeek)
+
   //gets current weather and info for 7 days from the API whenever a new location is selected
   useEffect(() => {
     const getCurrentWeather = async () => {
@@ -28,18 +33,24 @@ const DetailedView = ({ location }) => {
 
   //send an action log to the back-end server when current weather data gets retreived from an API call
   useEffect(() => {
-    if (currentWeather?.time) {
-      logAction({
-        action: "retrieved current weather",
-        data: {
-          name: location.name,
-          country: location.country,
-          currentWeather,
-        },
-      });
+    
+      // const logActionFunc = async () => {
+      //   await logAction({
+      //   action: "retrieved current weather",
+      //   data: {
+      //     name: location.name,
+      //     country: location.country,
+      //     currentWeather,
+      //   },
+      // });
+      // }
+  if (currentWeather?.time) {
+    // logActionFunc()
       setDayOfTheWeek(getDayOfTheWeek(currentWeather.time));
     }
   }, [currentWeather]);
+
+  console.log(currentWeather)
 
   //display loading while data from the API calls is getting fetched
   if (!currentWeather?.time || dailyWeather.length === 0)

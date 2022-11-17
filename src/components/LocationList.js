@@ -12,6 +12,7 @@ const LocationList = ({ locations, setDisplayDetails }) => {
   //display text if no locations are found by the search
   if (locations?.length === 0) return null;
   if (locations[0] === "none") return <div>no location found</div>;
+  if (locations[0] === "loading") return <h1>Loading...</h1>;
 
   //renders a list of locations found by the search
   return (

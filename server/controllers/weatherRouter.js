@@ -4,7 +4,9 @@ const config = require('../utils/config')
 
 weatherRouter.get(`/location*`, async (req, res) => {
 
-  console.log(req.query)
+  // console.log(config.RAPIDAPI_KEY)
+
+  // console.log(req.query)
   const options = {
     method: "GET",
     url: `https://foreca-weather.p.rapidapi.com/location/search/${req.query.location}`,
@@ -17,9 +19,10 @@ weatherRouter.get(`/location*`, async (req, res) => {
 
   try {
     const response = await axios.request(options);
-    console.log(response.data.locations.slice(0, 5))
+    // console.log('res data location list',response.data.locations.slice(0, 5))
     if (response.data.locations.length === 0) {
       res.send(["none"]);
+      return
     }
     res.send(response.data.locations.slice(0, 5));
   } catch (err) {
